@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Github, Mail, Send } from 'lucide-react'
-import { socials } from '../../data/portfolio'
+import { localize, socials } from '../../data/portfolio'
+import { useLanguage } from '../../i18n/LanguageContext'
 import './Contact.css'
 
 const container = {
@@ -21,60 +22,52 @@ const item = {
 }
 
 const Contact = () => {
+  const { language, messages } = useLanguage()
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   })
 
-  // Simple handler just to show interaction
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    alert('Thank you for reaching out! (Demo mode)')
+    alert(messages.contact.successAlert)
     setFormData({ name: '', email: '', message: '' })
   }
 
-  const getSocialIcon = (platform: string) => {
+  const getSocialIcon = (platform: 'github' | 'email') => {
     switch (platform) {
-      case 'GitHub': return <Github size={24} />
-      case 'Email': return <Mail size={24} />
-      default: return <Github size={24} />
+      case 'github':
+        return <Github size={24} />
+      case 'email':
+        return <Mail size={24} />
+      default:
+        return <Github size={24} />
     }
   }
 
   return (
     <section id="contact" className="contact-section container">
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-      >
-        <motion.h2 
-          className="section-title"
-          variants={item}
-        >
-          <span className="text-accent font-mono">06.</span> Get In Touch
+      <motion.div initial="hidden" whileInView="show" viewport={{ once: true }}>
+        <motion.h2 className="section-title" variants={item}>
+          <span className="text-accent font-mono">06.</span> {messages.sections.contact}
         </motion.h2>
 
-        <motion.div 
-          className="contact-container"
-          variants={container}
-        >
+        <motion.div className="contact-container" variants={container}>
           <motion.div className="contact-info-side" variants={item}>
-            <h3 className="font-mono">Say Hello!</h3>
-            <p className="info-text">
-              Bạn có một dự án thú vị cần ý tưởng Backend đột phá, hay chỉ đơn giản là muốn thảo luận về System Design? Tôi luôn sẵn sàng lắng nghe và kết nối.
-            </p>
-            
+            <h3 className="font-mono">{messages.contact.heading}</h3>
+            <p className="info-text">{messages.contact.intro}</p>
+
             <div className="social-links">
               {socials.map((social) => (
-                <a 
+                <a
                   key={social.platform}
                   href={social.url}
                   target={social.url.startsWith('mailto:') ? undefined : '_blank'}
                   rel={social.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
                   className="social-icon-link"
-                  aria-label={`Visit Phùng Quốc Việt on ${social.platform}`}
+                  aria-label={`${messages.common.visitOn} ${localize(social.label, language)}`}
                 >
                   {getSocialIcon(social.platform)}
                 </a>
@@ -82,47 +75,43 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          <motion.form 
-            className="contact-form glass" 
-            onSubmit={handleSubmit}
-            variants={item}
-          >
+          <motion.form className="contact-form glass" onSubmit={handleSubmit} variants={item}>
             <div className="form-group">
-              <label htmlFor="name">Full Name</label>
-              <input 
-                type="text" 
-                id="name" 
-                required 
+              <label htmlFor="name">{messages.contact.fullNameLabel}</label>
+              <input
+                type="text"
+                id="name"
+                required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="Phùng Quốc Việt"
+                placeholder={messages.contact.fullNamePlaceholder}
               />
             </div>
             <div className="form-group">
-              <label htmlFor="email">Email address</label>
-              <input 
-                type="email" 
-                id="email" 
-                required 
+              <label htmlFor="email">{messages.contact.emailLabel}</label>
+              <input
+                type="email"
+                id="email"
+                required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                placeholder="your.email@example.com"
+                placeholder={messages.contact.emailPlaceholder}
               />
             </div>
             <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea 
-                id="message" 
-                rows={4} 
-                required 
+              <label htmlFor="message">{messages.contact.messageLabel}</label>
+              <textarea
+                id="message"
+                rows={4}
+                required
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                placeholder="Let's build something awesome!"
+                placeholder={messages.contact.messagePlaceholder}
               ></textarea>
             </div>
-            <button type="submit" className="submit-btn font-mono" aria-label="Send Message">
+            <button type="submit" className="submit-btn font-mono" aria-label={messages.contact.submitAria}>
               <Send size={18} style={{ marginRight: '8px', verticalAlign: 'middle' }} />
-              Send Message
+              {messages.contact.submit}
             </button>
           </motion.form>
         </motion.div>

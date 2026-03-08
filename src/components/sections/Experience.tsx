@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { experiences } from '../../data/portfolio'
+import { experiences, localize } from '../../data/portfolio'
+import { useLanguage } from '../../i18n/LanguageContext'
 import TimelineItem from './TimelineItem'
 import './Experience.css'
 
@@ -20,30 +21,19 @@ const item = {
 }
 
 const Experience = () => {
+  const { language, messages } = useLanguage()
+
   return (
     <section id="experience" className="experience-section container">
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-      >
-        <motion.h2 
-          className="section-title"
-          variants={item}
-        >
-          <span className="text-accent font-mono">02.</span> Where I've Worked
+      <motion.div initial="hidden" whileInView="show" viewport={{ once: true }}>
+        <motion.h2 className="section-title" variants={item}>
+          <span className="text-accent font-mono">02.</span> {messages.sections.experience}
         </motion.h2>
 
-        <motion.div 
-          className="timeline"
-          variants={container}
-        >
+        <motion.div className="timeline" variants={container}>
           {experiences.map((exp, index) => (
-            <motion.div key={`${exp.company}-${index}`} variants={item}>
-              <TimelineItem 
-                exp={exp} 
-                index={index} 
-              />
+            <motion.div key={`${localize(exp.company, language)}-${index}`} variants={item}>
+              <TimelineItem exp={exp} index={index} />
             </motion.div>
           ))}
         </motion.div>
