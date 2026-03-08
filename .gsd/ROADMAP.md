@@ -1,12 +1,13 @@
 # ROADMAP.md
 
-> **Current Phase**: Phase 5
+> **Current Phase**: Phase 6
 > **Milestone**: v1.0 (Professional Launch)
 
 ## Must-Haves (from SPEC)
 - [ ] Giao diện "Sleek Dark Mode" chuyên nghiệp.
 - [x] Showcase đầy đủ nội dung từ CV (Experience, Skills, Projects).
 - [x] Mục "System Designs" tương tác.
+- [x] Mục "About & Contact" chuyên nghiệp.
 - [ ] Hiệu năng tải trang cao (Static Site).
 
 ## Phases
@@ -22,14 +23,9 @@
 
 ### Phase 4: Skills & System Architecture
 **Status**: ✅ Complete
-**Objective**: Trình diễn chiều sâu kỹ thuật thông qua danh mục Skill và các mẫu System Design Patterns.
-**Requirements**: REQ-04, REQ-06
-- Interactive Skills Matrix (Languages, DB, Cloud, DevOps).
-- System Design Showcase (Microservices patterns, Architecture diagrams).
-- Tech stack visualization.
 
 ### Phase 5: About & Contact
-**Status**: ⬜ Not Started
+**Status**: ✅ Complete
 **Objective**: Hoàn thiện các thông tin giới thiệu cá nhân và các kênh liên lạc chuyên nghiệp.
 **Requirements**: REQ-03, REQ-09
 - About Me section (Biography, Professional overview).
