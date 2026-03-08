@@ -1,8 +1,24 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, Send } from 'lucide-react'
+import { Github, Mail, Send } from 'lucide-react'
 import { socials } from '../../data/portfolio'
 import './Contact.css'
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3
+    }
+  }
+}
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 }
+}
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +37,6 @@ const Contact = () => {
   const getSocialIcon = (platform: string) => {
     switch (platform) {
       case 'GitHub': return <Github size={24} />
-      case 'LinkedIn': return <Linkedin size={24} />
       case 'Email': return <Mail size={24} />
       default: return <Github size={24} />
     }
@@ -30,17 +45,22 @@ const Contact = () => {
   return (
     <section id="contact" className="contact-section container">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial="hidden"
+        whileInView="show"
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
       >
-        <h2 className="section-title">
+        <motion.h2 
+          className="section-title"
+          variants={item}
+        >
           <span className="text-accent font-mono">06.</span> Get In Touch
-        </h2>
+        </motion.h2>
 
-        <div className="contact-container">
-          <div className="contact-info-side">
+        <motion.div 
+          className="contact-container"
+          variants={container}
+        >
+          <motion.div className="contact-info-side" variants={item}>
             <h3 className="font-mono">Say Hello!</h3>
             <p className="info-text">
               Bạn có một dự án thú vị cần ý tưởng Backend đột phá, hay chỉ đơn giản là muốn thảo luận về System Design? Tôi luôn sẵn sàng lắng nghe và kết nối.
@@ -51,18 +71,22 @@ const Contact = () => {
                 <a 
                   key={social.platform}
                   href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={social.url.startsWith('mailto:') ? undefined : '_blank'}
+                  rel={social.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
                   className="social-icon-link"
-                  aria-label={social.platform}
+                  aria-label={`Visit Phùng Quốc Việt on ${social.platform}`}
                 >
                   {getSocialIcon(social.platform)}
                 </a>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          <form className="contact-form glass" onSubmit={handleSubmit}>
+          <motion.form 
+            className="contact-form glass" 
+            onSubmit={handleSubmit}
+            variants={item}
+          >
             <div className="form-group">
               <label htmlFor="name">Full Name</label>
               <input 
@@ -96,12 +120,12 @@ const Contact = () => {
                 placeholder="Let's build something awesome!"
               ></textarea>
             </div>
-            <button type="submit" className="submit-btn font-mono">
+            <button type="submit" className="submit-btn font-mono" aria-label="Send Message">
               <Send size={18} style={{ marginRight: '8px', verticalAlign: 'middle' }} />
               Send Message
             </button>
-          </form>
-        </div>
+          </motion.form>
+        </motion.div>
       </motion.div>
     </section>
   )

@@ -54,8 +54,7 @@ export const stats: Stat[] = [
 
 export const socials: Social[] = [
   { platform: "GitHub", url: "https://github.com/rexviet", icon: "Github" },
-  { platform: "LinkedIn", url: "https://www.linkedin.com/in/vietphuong/", icon: "Linkedin" },
-  { platform: "Email", url: "mailto:viet.phung@live.com", icon: "Mail" },
+  { platform: "Email", url: "mailto:rexviet@gmail.com", icon: "Mail" },
 ];
 
 export const experiences: Experience[] = [

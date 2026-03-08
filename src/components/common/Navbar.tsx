@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Terminal, Github, Linkedin, Mail } from 'lucide-react'
+import { Terminal, Github, Mail } from 'lucide-react'
 import './Navbar.css'
 
 const Navbar = () => {
@@ -40,8 +40,7 @@ const Navbar = () => {
         </ul>
 
         <div className="navbar-socials">
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer"><Github size={18} /></a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><Linkedin size={18} /></a>
+          <a href="https://github.com/rexviet" target="_blank" rel="noopener noreferrer"><Github size={18} /></a>
           <a href="mailto:rexviet@gmail.com"><Mail size={18} /></a>
         </div>
       </div>

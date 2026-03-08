@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Folder, Github, ExternalLink, Users } from 'lucide-react'
+import { Folder, Users } from 'lucide-react'
 import { Project } from '../../data/portfolio'
 
 interface ProjectCardProps {
@@ -20,10 +20,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       <div className="project-top">
         <div className="project-folder">
           <Folder size={40} strokeWidth={1} />
-        </div>
-        <div className="project-links">
-          <Github size={20} />
-          <ExternalLink size={20} />
         </div>
       </div>
 
