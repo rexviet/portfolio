@@ -48,3 +48,5 @@ next-env.d.ts
 .gsd/
 adapters/
 CV-Phung-Quoc-Viet-Backend.jpg/
+docs/
+scripts/
