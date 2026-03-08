@@ -1,0 +1,125 @@
+.contact-section {
+  padding: 100px 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  margin-top: 3rem;
+  text-align: left;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--accent-primary);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 1rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: inherit;
+  transition: var(--transition-normal);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 15px var(--accent-primary-hover);
+}
+
+.submit-btn {
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 1px solid var(--accent-primary);
+  color: var(--accent-primary);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  background: var(--accent-primary-hover);
+  box-shadow: 0 5px 15px var(--accent-primary-hover);
+}
+
+.contact-info-side {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.info-text {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  transition: var(--transition-normal);
+  background: var(--glass-bg);
+}
+
+.social-icon-link:hover {
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 20px var(--accent-primary-hover);
+}
+
+@media screen and (max-width: 968px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .contact-info-side {
+    order: -1;
+    text-align: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .submit-btn {
+    align-self: stretch;
+  }
+}

@@ -28,6 +28,36 @@ export interface SystemDesign {
   benefits: string[];
 }
 
+export interface Stat {
+  label: string;
+  value: string;
+  icon: string;
+}
+
+export interface Social {
+  platform: string;
+  url: string;
+  icon: string;
+}
+
+export const bio = {
+  title: "Backend Leader & DevOps Engineer",
+  description: "Với hơn 7 năm kinh nghiệm thực chiến trong việc xây dựng và vận hành các hệ thống backend quy mô lớn, tôi chuyên sâu vào kiến trúc Microservices, tối ưu hóa hạ tầng Cloud và đảm bảo tính nhất quán của dữ liệu. Tôi đam mê giải quyết các bài toán hóc búa về scalability và performance, đồng thời luôn chú trọng vào việc xây dựng CI/CD flow mượt mà để tăng tốc độ phát triển phần mềm.",
+};
+
+export const stats: Stat[] = [
+  { label: "Years of Experience", value: "7+", icon: "Calendar" },
+  { label: "Projects Completed", value: "15+", icon: "Briefcase" },
+  { label: "Highest Users Served", value: "300K+", icon: "Users" },
+  { label: "Highest TVL Managed", value: "$58M+", icon: "TrendingUp" },
+];
+
+export const socials: Social[] = [
+  { platform: "GitHub", url: "https://github.com/rexviet", icon: "Github" },
+  { platform: "LinkedIn", url: "https://www.linkedin.com/in/vietphuong/", icon: "Linkedin" },
+  { platform: "Email", url: "mailto:viet.phung@live.com", icon: "Mail" },
+];
+
 export const experiences: Experience[] = [
   {
     company: "Pandora Digital",
