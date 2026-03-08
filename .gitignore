@@ -50,6 +50,6 @@ adapters/
 # CV files (PDF/JPG)
 *.pdf
 *.jpg
-CV-Phung-Quoc-Viet-Backend.jpg
+CV-imgs/
 docs/
 scripts/
