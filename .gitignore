@@ -47,6 +47,9 @@ next-env.d.ts
 .gemini/
 .gsd/
 adapters/
-CV-Phung-Quoc-Viet-Backend.jpg/
+# CV files (PDF/JPG)
+*.pdf
+*.jpg
+CV-imgs/
 docs/
 scripts/

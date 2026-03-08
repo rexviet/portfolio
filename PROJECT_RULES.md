@@ -187,7 +187,7 @@ scripts/                  # Utility scripts
 |-------|---------|
 | 0-30% | **PEAK** — Comprehensive, thorough work |
 | 30-50% | **GOOD** — Solid, confident output |
-| 50-70% | **DEGRADING** — Efficiency mode |
+| 50-70% | **DEGRADING** — Efficiency mode begins |
 | 70%+ | **POOR** — Rushed, incomplete |
 
 **Context Hygiene Rules:**
