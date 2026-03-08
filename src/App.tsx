@@ -1,32 +1,35 @@
 import { motion } from 'framer-motion'
 import { Terminal, Code2, Server, Cpu } from 'lucide-react'
+import Layout from './components/Layout'
 
 function App() {
   return (
-    <main className="container" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <span className="font-mono text-accent" style={{ fontSize: '1.2rem', marginBottom: '1rem', display: 'block' }}>
-          &gt; hello_world.exe
-        </span>
-        <h1 style={{ fontSize: '4rem', fontWeight: 800, marginBottom: '0.5rem', letterSpacing: '-2px' }}>
-          Phùng Quốc Việt
-        </h1>
-        <p style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', marginBottom: '3rem' }}>
-          Backend Leader | DevOps Engineer | System Architect
-        </p>
+    <Layout>
+      <section id="home" className="container" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '15vh 2rem' }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <span className="font-mono text-accent" style={{ fontSize: '1.2rem', marginBottom: '1rem', display: 'block' }}>
+            &gt; hello_world.exe
+          </span>
+          <h1 style={{ fontSize: 'min(5rem, 12vw)', fontWeight: 800, marginBottom: '0.5rem', letterSpacing: '-2px' }}>
+            Phùng Quốc Việt
+          </h1>
+          <p style={{ fontSize: 'min(1.5rem, 5vw)', color: 'var(--text-secondary)', marginBottom: '3rem' }}>
+            Backend Leader | DevOps Engineer | System Architect
+          </p>
 
-        <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center' }}>
-          <StatIcon icon={<Terminal size={24} />} label="CQRS" />
-          <StatIcon icon={<Code2 size={24} />} label="NestJS" />
-          <StatIcon icon={<Server size={24} />} label="Microservices" />
-          <StatIcon icon={<Cpu size={24} />} label="DevOps" />
-        </div>
-      </motion.div>
-    </main>
+          <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <StatIcon icon={<Terminal size={24} />} label="CQRS" />
+            <StatIcon icon={<Code2 size={24} />} label="NestJS" />
+            <StatIcon icon={<Server size={24} />} label="Microservices" />
+            <StatIcon icon={<Cpu size={24} />} label="DevOps" />
+          </div>
+        </motion.div>
+      </section>
+    </Layout>
   )
 }
 
