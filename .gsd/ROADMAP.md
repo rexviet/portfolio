@@ -1,6 +1,6 @@
 # ROADMAP.md
 
-> **Current Phase**: Not started
+> **Current Phase**: Phase 3
 > **Milestone**: v1.0 (Professional Launch)
 
 ## Must-Haves (from SPEC)
@@ -12,7 +12,7 @@
 ## Phases
 
 ### Phase 1: Foundation & Setup
-**Status**: ⬜ Not Started
+**Status**: ✅ Complete
 **Objective**: Thiết lập môi trường phát triển, cài đặt Framework và xây dựng hệ thống Design System (CSS Variables).
 **Requirements**: REQ-01, REQ-08
 - Cài đặt Vite + React (Typescript).
@@ -20,7 +20,7 @@
 - Thiết lập cấu trúc thư mục (Components/Layout/Hooks/Assets).
 
 ### Phase 2: Shell & Hero Section
-**Status**: ⬜ Not Started
+**Status**: ✅ Complete
 **Objective**: Xây dựng khung giao diện chính và phần giới thiệu ấn tượng nhất.
 **Requirements**: REQ-01, REQ-03, REQ-09
 - Header/Profile layout (Sticky sidebar or top bar).
