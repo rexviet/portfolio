@@ -1,7 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Folder, Users } from 'lucide-react'
-import { Project } from '../../data/portfolio'
+import { localize, Project } from '../../data/portfolio'
+import { useLanguage } from '../../i18n/LanguageContext'
 
 interface ProjectCardProps {
   project: Project
@@ -9,8 +10,10 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+  const { language, messages } = useLanguage()
+
   return (
-    <motion.div 
+    <motion.div
       className="project-card glass"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -23,25 +26,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </div>
       </div>
 
-      <h3 className="project-title">{project.title}</h3>
-      <p className="project-description">
-        {project.description[0]}
-      </p>
+      <h3 className="project-title">{localize(project.title, language)}</h3>
+      <p className="project-description">{localize(project.description[0], language)}</p>
 
       <ul className="project-tech-list font-mono">
         {project.techStack.slice(0, 5).map((tech, i) => (
-          <li key={i} className="project-tech-item">{tech}</li>
+          <li key={i} className="project-tech-item">
+            {tech}
+          </li>
         ))}
-        {project.techStack.length > 5 && (
-          <li className="project-tech-item">+{project.techStack.length - 5}</li>
-        )}
+        {project.techStack.length > 5 && <li className="project-tech-item">+{project.techStack.length - 5}</li>}
       </ul>
 
       <div className="project-meta font-mono">
-        <span className="project-company">{project.company}</span>
+        <span className="project-company">{localize(project.company, language)}</span>
         <span className="project-team-size">
           <Users size={14} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
-          {project.teamSize} members
+          {project.teamSize} {messages.common.members}
         </span>
       </div>
     </motion.div>

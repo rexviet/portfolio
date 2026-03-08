@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { CheckCircle2, Workflow, ShieldCheck, Layers } from 'lucide-react'
-import { systemDesigns } from '../../data/portfolio'
+import { localize, systemDesigns } from '../../data/portfolio'
+import { useLanguage } from '../../i18n/LanguageContext'
 import './SystemDesign.css'
 
 const container = {
@@ -20,46 +21,34 @@ const item = {
 }
 
 const SystemDesign = () => {
+  const { language, messages } = useLanguage()
+
   return (
     <section id="system-design" className="system-design-section container">
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-      >
-        <motion.h2 
-          className="section-title"
-          variants={item}
-        >
-          <span className="text-accent font-mono">05.</span> System Design Philosophy
+      <motion.div initial="hidden" whileInView="show" viewport={{ once: true }}>
+        <motion.h2 className="section-title" variants={item}>
+          <span className="text-accent font-mono">05.</span> {messages.sections.systemDesign}
         </motion.h2>
 
-        <motion.div 
-          className="design-cards-container"
-          variants={container}
-        >
+        <motion.div className="design-cards-container" variants={container}>
           {systemDesigns.map((design, index) => (
-            <motion.div 
-              key={design.title}
-              className="design-card glass"
-              variants={item}
-            >
+            <motion.div key={localize(design.title, language)} className="design-card glass" variants={item}>
               <div className="design-info">
-                <h3 className="font-mono">{design.title}</h3>
-                <p className="design-desc">{design.description}</p>
-                
+                <h3 className="font-mono">{localize(design.title, language)}</h3>
+                <p className="design-desc">{localize(design.description, language)}</p>
+
                 <div className="design-problem">
-                  <strong>Problem it solves</strong>
-                  <p>{design.problem}</p>
+                  <strong>{messages.systemDesign.problemLabel}</strong>
+                  <p>{localize(design.problem, language)}</p>
                 </div>
 
                 <div className="design-benefits">
-                  <h4>Key Benefits</h4>
+                  <h4>{messages.systemDesign.benefitsLabel}</h4>
                   <ul className="benefits-list font-mono">
                     {design.benefits.map((benefit, i) => (
                       <li key={i} className="benefit-item">
                         <CheckCircle2 size={14} style={{ marginRight: '8px', verticalAlign: 'middle', color: 'var(--accent-primary)' }} />
-                        {benefit}
+                        {localize(benefit, language)}
                       </li>
                     ))}
                   </ul>
