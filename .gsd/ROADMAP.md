@@ -37,3 +37,16 @@
 - Micro-animations (Framer Motion).
 - Performance audit (Lighthouse).
 - Final Deployment.
+
+---
+
+### Phase 7: Post-Launch Enhancements
+**Status**: ⬜ Not Started
+**Objective**: Tinh chỉnh trải nghiệm sau launch, nâng độ hoàn thiện UI/UX và chuẩn hóa nội dung liên hệ/social.
+**Depends on**: Phase 6
+
+**Tasks**:
+- [ ] TBD (run /plan 7 to create)
+
+**Verification**:
+- TBD
