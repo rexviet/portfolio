@@ -1,14 +1,13 @@
-# ROADMAP.md
-
-> **Current Phase**: Phase 6
+> **Current Phase**: COMPLETED
+> **Milestone**: v1.0 (Professional Launch) - ✅ DONE
 > **Milestone**: v1.0 (Professional Launch)
 
 ## Must-Haves (from SPEC)
-- [ ] Giao diện "Sleek Dark Mode" chuyên nghiệp.
+- [x] Giao diện "Sleek Dark Mode" chuyên nghiệp.
 - [x] Showcase đầy đủ nội dung từ CV (Experience, Skills, Projects).
 - [x] Mục "System Designs" tương tác.
 - [x] Mục "About & Contact" chuyên nghiệp.
-- [ ] Hiệu năng tải trang cao (Static Site).
+- [x] Hiệu năng tải trang cao (Static Site).
 
 ## Phases
 
@@ -32,7 +31,7 @@
 - Contact section (Contact form, Social media links).
 
 ### Phase 6: Polish, SEO & Launch
-**Status**: ⬜ Not Started
+**Status**: ✅ Complete
 **Objective**: Hoàn thiện các hiệu ứng chuyển động, tối ưu hóa SEO và đẩy lên môi trường Production.
 **Requirements**: REQ-02, REQ-08
 - Micro-animations (Framer Motion).

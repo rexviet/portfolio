@@ -13,34 +13,57 @@ const getIcon = (iconName: string) => {
   }
 }
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3
+    }
+  }
+}
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 }
+}
+
 const About = () => {
   return (
     <section id="about" className="about-section container">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial="hidden"
+        whileInView="show"
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
       >
-        <h2 className="section-title">
+        <motion.h2 
+          className="section-title"
+          variants={item}
+        >
           <span className="text-accent font-mono">01.</span> About Me
-        </h2>
+        </motion.h2>
 
         <div className="about-content">
-          <div className="about-bio">
+          <motion.div className="about-bio" variants={item}>
             <h3 className="font-mono">{bio.title}</h3>
             <p>{bio.description}</p>
-          </div>
+          </motion.div>
 
-          <div className="about-stats">
-            {stats.map((stat, index) => (
+          <motion.div 
+            className="about-stats"
+            variants={container}
+          >
+            {stats.map((stat) => (
               <motion.div 
                 key={stat.label}
                 className="stat-card glass"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                variants={item}
+                whileHover={{ 
+                  scale: 1.05, 
+                  borderColor: 'var(--accent-primary)',
+                  boxShadow: '0 0 20px var(--accent-primary-hover)'
+                }}
               >
                 <div className="stat-icon">
                   {getIcon(stat.icon)}
@@ -49,7 +72,7 @@ const About = () => {
                 <span className="stat-label">{stat.label}</span>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>

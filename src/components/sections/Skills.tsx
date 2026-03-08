@@ -14,28 +14,46 @@ const getIcon = (category: string) => {
   }
 }
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3
+    }
+  }
+}
+
+const item = {
+  hidden: { opacity: 0, scale: 0.9, y: 10 },
+  show: { opacity: 1, scale: 1, y: 0 }
+}
+
 const Skills = () => {
   return (
     <section id="skills" className="skills-section container">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial="hidden"
+        whileInView="show"
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
       >
-        <h2 className="section-title">
+        <motion.h2 
+          className="section-title"
+          variants={item}
+        >
           <span className="text-accent font-mono">04.</span> Technical Skills
-        </h2>
+        </motion.h2>
 
-        <div className="skills-grid">
-          {skillGroups.map((group, index) => (
+        <motion.div 
+          className="skills-grid"
+          variants={container}
+        >
+          {skillGroups.map((group) => (
             <motion.div 
               key={group.category}
               className="skill-category-box glass"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              variants={item}
             >
               <h3 className="skill-category-title">
                 <span className="text-accent">{getIcon(group.category)}</span>
@@ -50,7 +68,7 @@ const Skills = () => {
               </ul>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   )

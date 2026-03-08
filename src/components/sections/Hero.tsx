@@ -10,6 +10,22 @@ const titles = [
   'Microservices Expert'
 ]
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1
+    }
+  }
+}
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 }
+}
+
 const Hero = () => {
   const [index, setIndex] = useState(0)
 
@@ -24,19 +40,19 @@ const Hero = () => {
     <section id="home" className="hero-section container">
       <div className="hero-content">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          variants={container}
+          initial="hidden"
+          animate="show"
         >
-          <div className="hero-terminal-pre font-mono text-accent">
+          <motion.div variants={item} className="hero-terminal-pre font-mono text-accent">
             <span className="cursor">&gt;</span> hello_world.exe
-          </div>
+          </motion.div>
           
-          <h1 className="hero-name">
+          <motion.h1 variants={item} className="hero-name">
             Phùng Quốc <span className="text-accent">Việt</span>
-          </h1>
+          </motion.h1>
 
-          <div className="hero-title-container">
+          <motion.div variants={item} className="hero-title-container">
             <AnimatePresence mode="wait">
               <motion.h2
                 key={titles[index]}
@@ -49,26 +65,27 @@ const Hero = () => {
                 {titles[index]}
               </motion.h2>
             </AnimatePresence>
-          </div>
+          </motion.div>
 
-          <p className="hero-objective">
+          <motion.p variants={item} className="hero-objective">
             To contribute my Back-end, system, and DevOps skills and experience in a solid company, 
             and become a good Solution Architect in future.
-          </p>
+          </motion.p>
 
-          <div className="hero-stats">
+          <motion.div variants={item} className="hero-stats">
             <StatItem icon={<Terminal size={20} />} label="CQRS" />
             <StatItem icon={<Code2 size={20} />} label="NestJS" />
             <StatItem icon={<Server size={20} />} label="Microservices" />
             <StatItem icon={<Cpu size={20} />} label="DevOps / AWS" />
-          </div>
+          </motion.div>
 
-          <div className="hero-cta">
+          <motion.div variants={item} className="hero-cta">
             <motion.a 
               href="#contact" 
               className="btn btn-primary"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              aria-label="Contact Phùng Quốc Việt via email"
             >
               Contact Me <Mail size={18} style={{ marginLeft: '8px' }} />
             </motion.a>
@@ -77,10 +94,11 @@ const Hero = () => {
               className="btn btn-outline"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              aria-label="View selected projects by Phùng Quốc Việt"
             >
               View Projects <ChevronRight size={18} style={{ marginLeft: '4px' }} />
             </motion.a>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
 

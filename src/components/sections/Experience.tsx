@@ -3,28 +3,50 @@ import { experiences } from '../../data/portfolio'
 import TimelineItem from './TimelineItem'
 import './Experience.css'
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.3
+    }
+  }
+}
+
+const item = {
+  hidden: { opacity: 0, x: -20 },
+  show: { opacity: 1, x: 0 }
+}
+
 const Experience = () => {
   return (
     <section id="experience" className="experience-section container">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial="hidden"
+        whileInView="show"
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
       >
-        <h2 className="section-title">
+        <motion.h2 
+          className="section-title"
+          variants={item}
+        >
           <span className="text-accent font-mono">02.</span> Where I've Worked
-        </h2>
+        </motion.h2>
 
-        <div className="timeline">
+        <motion.div 
+          className="timeline"
+          variants={container}
+        >
           {experiences.map((exp, index) => (
-            <TimelineItem 
-              key={`${exp.company}-${index}`} 
-              exp={exp} 
-              index={index} 
-            />
+            <motion.div key={`${exp.company}-${index}`} variants={item}>
+              <TimelineItem 
+                exp={exp} 
+                index={index} 
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   )

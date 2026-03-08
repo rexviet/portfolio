@@ -3,28 +3,50 @@ import { projects } from '../../data/portfolio'
 import ProjectCard from './ProjectCard'
 import './Projects.css'
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3
+    }
+  }
+}
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 }
+}
+
 const Projects = () => {
   return (
     <section id="projects" className="projects-section container">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial="hidden"
+        whileInView="show"
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
       >
-        <h2 className="section-title">
+        <motion.h2 
+          className="section-title"
+          variants={item}
+        >
           <span className="text-accent font-mono">03.</span> Some Things I've Built
-        </h2>
+        </motion.h2>
 
-        <div className="projects-grid">
+        <motion.div 
+          className="projects-grid"
+          variants={container}
+        >
           {projects.map((project, index) => (
-            <ProjectCard 
-              key={`${project.title}-${index}`} 
-              project={project} 
-              index={index} 
-            />
+            <motion.div key={`${project.title}-${index}`} variants={item}>
+              <ProjectCard 
+                project={project} 
+                index={index} 
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   )
