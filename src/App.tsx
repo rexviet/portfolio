@@ -1,6 +1,8 @@
 import Hero from './components/sections/Hero'
 import Experience from './components/sections/Experience'
 import Projects from './components/sections/Projects'
+import Skills from './components/sections/Skills'
+import SystemDesign from './components/sections/SystemDesign'
 import Layout from './components/Layout'
 
 function App() {
@@ -9,10 +11,8 @@ function App() {
       <Hero />
       <Experience />
       <Projects />
-      
-      {/* System design anchor for next phase */}
-      <section id="system-design" style={{ minHeight: '50vh', padding: '100px 2rem' }} className="container">
-      </section>
+      <Skills />
+      <SystemDesign />
       
       <section id="contact" style={{ minHeight: '50vh', padding: '100px 2rem' }} className="container">
       </section>

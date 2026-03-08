@@ -1,0 +1,116 @@
+.system-design-section {
+  padding: 100px 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.design-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.design-card {
+  padding: 3rem;
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  transition: var(--transition-normal);
+  border: 1px solid var(--glass-border);
+}
+
+.design-card:hover {
+  border-color: var(--accent-primary);
+  box-shadow: 0 20px 50px -20px var(--accent-primary-hover);
+}
+
+.design-info h3 {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.design-desc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.design-problem {
+  background: rgba(255, 100, 100, 0.05);
+  border-left: 3px solid #ff6464;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 0 8px 8px 0;
+}
+
+.design-problem strong {
+  color: #ff6464;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.design-problem p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.design-benefits h4 {
+  font-size: 1rem;
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.benefits-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.benefit-item {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  background: var(--accent-primary-hover);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid var(--accent-primary);
+}
+
+.design-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Simple Diagram Styling */
+.diagram-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-primary);
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 968px) {
+  .design-card {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+  .design-visual {
+    height: 200px;
+  }
+}

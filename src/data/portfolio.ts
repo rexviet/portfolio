@@ -16,6 +16,18 @@ export interface Project {
   description: string[];
 }
 
+export interface SkillGroup {
+  category: string;
+  skills: string[];
+}
+
+export interface SystemDesign {
+  title: string;
+  description: string;
+  problem: string;
+  benefits: string[];
+}
+
 export const experiences: Experience[] = [
   {
     company: "Pandora Digital",
@@ -136,5 +148,49 @@ export const projects: Project[] = [
       "Maintain and develop CI/CD flows",
       "Support and guide and review code for members"
     ]
+  }
+];
+
+export const skillGroups: SkillGroup[] = [
+  {
+    category: "Languages & Frameworks",
+    skills: ["NodeJS (NestJS, Express)", "TypeScript", "JavaScript", "Go", "Python"]
+  },
+  {
+    category: "Databases",
+    skills: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch", "MySQL", "DynamoDB"]
+  },
+  {
+    category: "Architecture & Microservices",
+    skills: ["Microservices", "gRPC", "Message Queues (SNS/SQS, RabbitMQ)", "Event-Driven", "RESTful API", "Socket.io"]
+  },
+  {
+    category: "DevOps & Cloud",
+    skills: ["AWS (EC2, EKS, Lambda, S3)", "Docker & Kubernetes", "Terraform", "CI/CD (GitHub Actions, Jenkins)", "Azure"]
+  },
+  {
+    category: "System Design Patterns",
+    skills: ["Transactional Outbox", "CQRS", "Saga Pattern", "API Gateway", "Caching Strategies"]
+  }
+];
+
+export const systemDesigns: SystemDesign[] = [
+  {
+    title: "Transactional Outbox Pattern",
+    description: "Đảm bảo tính nhất quán dữ liệu giữa Database và Message Broker (Kafka/SNS/SQS).",
+    problem: "Mất mát tin nhắn khi hệ thống crash sau khi commit DB nhưng chưa kịp publish message.",
+    benefits: ["Exactly-once processing guarantee", "Reliable event-driven communication", "Decoupled services"]
+  },
+  {
+    title: "CQRS (Command Query Responsibility Segregation)",
+    description: "Tách biệt luồng ghi (Command) và luồng đọc (Query) để tối ưu hiệu năng.",
+    problem: "Database contention khi lượng read/write đồng thời quá lớn và yêu cầu query phức tạp.",
+    benefits: ["Scalability of read/write independently", "Optimized data schemas for queries", "Security and validation separation"]
+  },
+  {
+    title: "Scalable Microservices Architecture",
+    description: "Thiết kế hệ thống chịu tải cao với autoscaling và service discovery.",
+    problem: "Monolithic bottleneck và khó khăn trong việc mở rộng các module cụ thể.",
+    benefits: ["High availability", "Fault tolerance", "Easy deployment and scaling"]
   }
 ];
