@@ -10,13 +10,14 @@
 ## Current Status
 - SPEC.md: FINALIZED
 - ROADMAP.md: Phase 4 COMPLETE
-- Phase 5: Not started
+- Phase 5: READY (About & Contact)
 
 ## Progress Detail
 - **Phase 1 (Foundation)**: [x] Complete.
 - **Phase 2 (Shell & Hero)**: [x] Complete. Navigation & Hero section.
 - **Phase 3 (Experience & Projects)**: [x] Complete. Content from CV images integrated.
 - **Phase 4 (Skills & System Design)**: [x] Complete. Implemented Interactive Tech Stack and System Design Philosophy sections.
+- **Phase 5 (About & Contact)**: [ ] PLANNED (READY for execution)
 
 ## Wave Summary (Phase 4)
 - **Wave 1**: Skills UI implementation.

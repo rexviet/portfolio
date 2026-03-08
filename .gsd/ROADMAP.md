@@ -30,3 +30,15 @@
 
 ### Phase 5: About & Contact
 **Status**: ⬜ Not Started
+**Objective**: Hoàn thiện các thông tin giới thiệu cá nhân và các kênh liên lạc chuyên nghiệp.
+**Requirements**: REQ-03, REQ-09
+- About Me section (Biography, Professional overview).
+- Contact section (Contact form, Social media links).
+
+### Phase 6: Polish, SEO & Launch
+**Status**: ⬜ Not Started
+**Objective**: Hoàn thiện các hiệu ứng chuyển động, tối ưu hóa SEO và đẩy lên môi trường Production.
+**Requirements**: REQ-02, REQ-08
+- Micro-animations (Framer Motion).
+- Performance audit (Lighthouse).
+- Final Deployment.
