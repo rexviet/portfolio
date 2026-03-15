@@ -10,6 +10,21 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const { language, messages } = useLanguage()
+  const diagramSets =
+    language === 'vi'
+      ? [
+          ['Gateway', 'Services', 'Event Bus'],
+          ['Indexer', 'Query API', 'Postgres'],
+          ['Socket Layer', 'Workers', 'Redis'],
+          ['API Core', 'Billing', 'Analytics']
+        ]
+      : [
+          ['Gateway', 'Services', 'Event Bus'],
+          ['Indexer', 'Query API', 'Postgres'],
+          ['Socket Layer', 'Workers', 'Redis'],
+          ['API Core', 'Billing', 'Analytics']
+        ]
+  const diagram = diagramSets[index] ?? diagramSets[0]
 
   return (
     <motion.div
@@ -37,6 +52,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <li key={localize(item, language)}>{localize(item, language)}</li>
         ))}
       </ul>
+
+      <div className="project-diagram" aria-hidden="true">
+        {diagram.map((node, nodeIndex) => (
+          <div key={node} className="project-diagram-node">
+            <span className="project-diagram-label font-mono">{node}</span>
+            {nodeIndex < diagram.length - 1 && <span className="project-diagram-link"></span>}
+          </div>
+        ))}
+      </div>
 
       <ul className="project-tech-list font-mono">
         {project.techStack.slice(0, index === 0 ? 6 : 4).map((tech, i) => (

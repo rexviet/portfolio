@@ -1,21 +1,20 @@
 .about-content {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: stretch;
 }
 
 .about-bio {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  padding: clamp(1.5rem, 3vw, 2.4rem);
+  gap: 1rem;
+  padding: 1.35rem;
   border-radius: var(--radius-large);
 }
 
 .about-bio p {
   color: var(--text-secondary);
-  font-size: 1.02rem;
 }
 
 .about-highlights {
@@ -24,47 +23,47 @@
 }
 
 .about-highlight {
-  padding: 1.35rem 1.4rem;
-  border-radius: 24px;
+  padding: 1.15rem;
+  border-radius: var(--radius-medium);
 }
 
 .about-highlight-head {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
-  margin-bottom: 1rem;
+  gap: 0.8rem;
+  margin-bottom: 0.9rem;
 }
 
 .about-highlight-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  min-width: 42px;
-  height: 42px;
-  border-radius: 14px;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  border-radius: 12px;
   color: var(--accent-primary);
-  background: rgba(15, 94, 168, 0.08);
+  background: rgba(0, 245, 255, 0.08);
 }
 
 .about-highlight-head h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 700;
 }
 
 .about-highlight-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
+  gap: 0.55rem;
 }
 
 .about-highlight-list li {
-  padding: 0.5rem 0.8rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.64);
-  border: 1px solid rgba(17, 35, 63, 0.08);
+  padding: 0.4rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.02);
   color: var(--text-secondary);
-  font-size: 0.86rem;
+  font-size: 0.82rem;
 }
 
 @media screen and (max-width: 980px) {
