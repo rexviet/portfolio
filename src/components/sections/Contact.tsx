@@ -32,7 +32,16 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    alert(messages.contact.successAlert)
+
+    const subject = `${messages.contact.heading} - ${formData.name}`
+    const body = [
+      `${messages.contact.fullNameLabel}: ${formData.name}`,
+      `${messages.contact.emailLabel}: ${formData.email}`,
+      '',
+      formData.message
+    ].join('\n')
+
+    window.location.href = `mailto:rexviet@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
     setFormData({ name: '', email: '', message: '' })
   }
 
@@ -48,28 +57,43 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="contact-section container">
+    <section id="contact" className="contact-section section-shell container">
       <motion.div initial="hidden" whileInView="show" viewport={{ once: true }}>
-        <motion.h2 className="section-title" variants={item}>
-          <span className="text-accent font-mono">06.</span> {messages.sections.contact}
-        </motion.h2>
+        <div className="section-head">
+          <motion.div variants={item}>
+            <p className="section-kicker">06 / {messages.sections.contact}</p>
+            <motion.h2 className="section-title" variants={item}>
+              {messages.sections.contact}
+            </motion.h2>
+          </motion.div>
+          <motion.p className="section-copy" variants={item}>
+            {messages.contact.intro}
+          </motion.p>
+        </div>
 
         <motion.div className="contact-container" variants={container}>
-          <motion.div className="contact-info-side" variants={item}>
-            <h3 className="font-mono">{messages.contact.heading}</h3>
+          <motion.div className="contact-info-side glass" variants={item}>
+            <span className="eyebrow">{messages.sections.contact}</span>
+            <h3>{messages.contact.heading}</h3>
             <p className="info-text">{messages.contact.intro}</p>
 
-            <div className="social-links">
+            <div className="contact-methods">
               {socials.map((social) => (
                 <a
                   key={social.platform}
                   href={social.url}
                   target={social.url.startsWith('mailto:') ? undefined : '_blank'}
                   rel={social.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                  className="social-icon-link"
+                  className="contact-method"
                   aria-label={`${messages.common.visitOn} ${localize(social.label, language)}`}
                 >
-                  {getSocialIcon(social.platform)}
+                  <span className="contact-method-icon">{getSocialIcon(social.platform)}</span>
+                  <span className="contact-method-content">
+                    <span className="contact-method-label">{localize(social.label, language)}</span>
+                    <span className="contact-method-value font-mono">
+                      {social.url.startsWith('mailto:') ? social.url.replace('mailto:', '') : social.url.replace('https://', '')}
+                    </span>
+                  </span>
                 </a>
               ))}
             </div>
@@ -109,8 +133,8 @@ const Contact = () => {
                 placeholder={messages.contact.messagePlaceholder}
               ></textarea>
             </div>
-            <button type="submit" className="submit-btn font-mono" aria-label={messages.contact.submitAria}>
-              <Send size={18} style={{ marginRight: '8px', verticalAlign: 'middle' }} />
+            <button type="submit" className="btn btn-primary submit-btn font-mono" aria-label={messages.contact.submitAria}>
+              <Send size={18} />
               {messages.contact.submit}
             </button>
           </motion.form>

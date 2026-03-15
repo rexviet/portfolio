@@ -10,16 +10,22 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { messages } = useLanguage()
 
   return (
-    <div className="layout-shell" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <div className="layout-shell">
       <Navbar />
-      <main className="content-area" style={{ flex: 1, paddingTop: '100px', display: 'flex', flexDirection: 'column' }}>
+      <main className="content-area">
         {children}
       </main>
-      <footer className="footer glass" style={{ borderTop: '1px solid var(--glass-border)', padding: '2rem 1rem', textAlign: 'center', marginTop: '4rem' }}>
-        <p className="font-mono" style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
-          &copy; {new Date().getFullYear()} Phùng Quốc Việt. {messages.common.builtWith}{' '}
-          <span className="text-accent">React + Vite + Love</span>.
-        </p>
+      <footer className="site-footer">
+        <div className="container footer-inner">
+          <div>
+            <p className="footer-brand font-mono">Phung Quoc Viet / Portfolio</p>
+            <p className="footer-copy">{messages.hero.objective}</p>
+          </div>
+          <p className="footer-note font-mono">
+            &copy; {new Date().getFullYear()} Phùng Quốc Việt. {messages.common.builtWith}{' '}
+            <span className="text-accent">React + Vite + Framer Motion</span>.
+          </p>
+        </div>
       </footer>
     </div>
   )

@@ -39,20 +39,33 @@ const item = {
 
 const Skills = () => {
   const { language, messages } = useLanguage()
+  const sectionCopy =
+    language === 'vi'
+      ? 'Tập trung vào backend platform, data consistency, cloud delivery và các pattern giúp hệ thống vận hành bình tĩnh khi tăng trưởng.'
+      : 'Centered on backend platforms, data consistency, cloud delivery, and the patterns that keep systems calm while they scale.'
 
   return (
-    <section id="skills" className="skills-section container">
+    <section id="skills" className="skills-section section-shell container">
       <motion.div initial="hidden" whileInView="show" viewport={{ once: true }}>
-        <motion.h2 className="section-title" variants={item}>
-          <span className="text-accent font-mono">04.</span> {messages.sections.skills}
-        </motion.h2>
+        <div className="section-head">
+          <motion.div variants={item}>
+            <p className="section-kicker">04 / {messages.sections.skills}</p>
+            <motion.h2 className="section-title" variants={item}>
+              {messages.sections.skills}
+            </motion.h2>
+          </motion.div>
+          <motion.p className="section-copy" variants={item}>
+            {sectionCopy}
+          </motion.p>
+        </div>
 
         <motion.div className="skills-grid" variants={container}>
           {skillGroups.map((group) => (
             <motion.div key={group.icon} className="skill-category-box glass" variants={item}>
               <h3 className="skill-category-title">
-                <span className="text-accent">{getIcon(group.icon)}</span>
-                {localize(group.category, language)}
+                <span className="skill-category-icon text-accent">{getIcon(group.icon)}</span>
+                <span>{localize(group.category, language)}</span>
+                <span className="skill-count font-mono">{group.skills.length}</span>
               </h3>
               <ul className="skills-list">
                 {group.skills.map((skill) => (

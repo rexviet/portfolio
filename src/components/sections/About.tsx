@@ -1,21 +1,23 @@
 import { motion } from 'framer-motion'
-import { Calendar, Briefcase, Users, TrendingUp } from 'lucide-react'
-import { bio, localize, stats } from '../../data/portfolio'
+import { Code2, Database, Layers, Cloud, Settings } from 'lucide-react'
+import { bio, localize, skillGroups } from '../../data/portfolio'
 import { useLanguage } from '../../i18n/LanguageContext'
 import './About.css'
 
 const getIcon = (iconName: string) => {
   switch (iconName) {
-    case 'Calendar':
-      return <Calendar size={32} />
-    case 'Briefcase':
-      return <Briefcase size={32} />
-    case 'Users':
-      return <Users size={32} />
-    case 'TrendingUp':
-      return <TrendingUp size={32} />
+    case 'code':
+      return <Code2 size={20} />
+    case 'database':
+      return <Database size={20} />
+    case 'architecture':
+      return <Layers size={20} />
+    case 'cloud':
+      return <Cloud size={20} />
+    case 'patterns':
+      return <Settings size={20} />
     default:
-      return <Briefcase size={32} />
+      return <Code2 size={20} />
   }
 }
 
@@ -39,33 +41,39 @@ const About = () => {
   const { language, messages } = useLanguage()
 
   return (
-    <section id="about" className="about-section container">
+    <section id="about" className="about-section section-shell container">
       <motion.div initial="hidden" whileInView="show" viewport={{ once: true }}>
-        <motion.h2 className="section-title" variants={item}>
-          <span className="text-accent font-mono">01.</span> {messages.sections.about}
-        </motion.h2>
+        <div className="section-head">
+          <motion.div variants={item}>
+            <p className="section-kicker">01 / {messages.sections.about}</p>
+            <motion.h2 className="section-title" variants={item}>
+              {messages.sections.about}
+            </motion.h2>
+          </motion.div>
+          <motion.p className="section-copy" variants={item}>
+            {messages.hero.objective}
+          </motion.p>
+        </div>
 
         <div className="about-content">
-          <motion.div className="about-bio" variants={item}>
-            <h3 className="font-mono">{localize(bio.title, language)}</h3>
+          <motion.article className="about-bio glass" variants={item}>
+            <span className="eyebrow">{localize(bio.title, language)}</span>
             <p>{localize(bio.description, language)}</p>
-          </motion.div>
+          </motion.article>
 
-          <motion.div className="about-stats" variants={container}>
-            {stats.map((stat) => (
-              <motion.div
-                key={stat.icon}
-                className="stat-card glass"
-                variants={item}
-                whileHover={{
-                  scale: 1.05,
-                  borderColor: 'var(--accent-primary)',
-                  boxShadow: '0 0 20px var(--accent-primary-hover)'
-                }}
-              >
-                <div className="stat-icon">{getIcon(stat.icon)}</div>
-                <span className="stat-value font-mono text-accent">{stat.value}</span>
-                <span className="stat-label">{localize(stat.label, language)}</span>
+          <motion.div className="about-highlights" variants={container}>
+            {skillGroups.slice(0, 3).map((group) => (
+              <motion.div key={group.icon} className="about-highlight glass" variants={item}>
+                <div className="about-highlight-head">
+                  <span className="about-highlight-icon">{getIcon(group.icon)}</span>
+                  <h3>{localize(group.category, language)}</h3>
+                </div>
+
+                <ul className="about-highlight-list">
+                  {group.skills.slice(0, 3).map((skill) => (
+                    <li key={skill}>{skill}</li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </motion.div>
