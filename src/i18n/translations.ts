@@ -3,8 +3,10 @@ import { Language } from './types'
 interface Messages {
   nav: {
     home: string
+    about: string
     experience: string
     projects: string
+    skills: string
     systemDesign: string
     contact: string
   }
@@ -19,8 +21,16 @@ interface Messages {
   hero: {
     command: string
     titles: string[]
+    manifesto: string
     objective: string
     statTags: string[]
+    status: string
+    panelKicker: string
+    panelNote: string
+    terminalTitle: string
+    terminalLines: string[]
+    techStackLabel: string
+    optimizationLabel: string
     contactCta: string
     projectsCta: string
     languageLabel: string
@@ -62,8 +72,10 @@ export const messagesByLanguage: Record<Language, Messages> = {
   vi: {
     nav: {
       home: 'Trang chủ',
+      about: 'Về tôi',
       experience: 'Kinh nghiệm',
       projects: 'Dự án',
+      skills: 'Kỹ năng',
       systemDesign: 'Thiết kế hệ thống',
       contact: 'Liên hệ'
     },
@@ -78,8 +90,20 @@ export const messagesByLanguage: Record<Language, Messages> = {
     hero: {
       command: 'xin_chao.exe',
       titles: ['Trưởng nhóm Backend', 'Kỹ sư DevOps', 'Kiến trúc sư hệ thống', 'Chuyên gia Microservices'],
+      manifesto: 'Engineering scalable systems for 300,000+ active users.',
       objective: 'Đóng góp năng lực Back-end, hệ thống và DevOps tại một môi trường vững mạnh, đồng thời phát triển để trở thành Solution Architect xuất sắc trong tương lai.',
       statTags: ['CQRS', 'NestJS', 'Microservices', 'DevOps / AWS'],
+      status: 'Sẵn sàng cho backend leadership và platform engineering',
+      panelKicker: 'Tác động tiêu biểu',
+      panelNote: 'Kết hợp tư duy kiến trúc, delivery thực chiến và vận hành cloud để biến hệ thống phức tạp thành sản phẩm ổn định.',
+      terminalTitle: 'terminal.console',
+      terminalLines: [
+        '$ whoami -> backend-leader/devops-engineer',
+        '$ focus -> microservices, cloud, system design',
+        '$ learning -> rust for performance-critical systems'
+      ],
+      techStackLabel: 'Platform toolkit',
+      optimizationLabel: 'Optimization',
       contactCta: 'Liên hệ tôi',
       projectsCta: 'Xem dự án',
       languageLabel: 'Ngôn ngữ'
@@ -119,8 +143,10 @@ export const messagesByLanguage: Record<Language, Messages> = {
   en: {
     nav: {
       home: 'Home',
+      about: 'About',
       experience: 'Experience',
       projects: 'Projects',
+      skills: 'Skills',
       systemDesign: 'System Design',
       contact: 'Contact'
     },
@@ -135,8 +161,20 @@ export const messagesByLanguage: Record<Language, Messages> = {
     hero: {
       command: 'hello_world.exe',
       titles: ['Backend Leader', 'DevOps Engineer', 'System Architect', 'Microservices Expert'],
+      manifesto: 'Engineering scalable systems for 300,000+ active users.',
       objective: 'To contribute my back-end, systems, and DevOps expertise in a strong company and grow into an outstanding Solution Architect.',
       statTags: ['CQRS', 'NestJS', 'Microservices', 'DevOps / AWS'],
+      status: 'Open to backend leadership and platform engineering roles',
+      panelKicker: 'Selected impact',
+      panelNote: 'Combining architecture thinking, delivery discipline, and cloud operations to turn complex systems into dependable products.',
+      terminalTitle: 'terminal.console',
+      terminalLines: [
+        '$ whoami -> backend-leader/devops-engineer',
+        '$ focus -> microservices, cloud, system design',
+        '$ learning -> rust for performance-critical systems'
+      ],
+      techStackLabel: 'Platform toolkit',
+      optimizationLabel: 'Optimization',
       contactCta: 'Contact Me',
       projectsCta: 'View Projects',
       languageLabel: 'Language'

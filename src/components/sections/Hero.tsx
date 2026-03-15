@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Terminal, Code2, Server, Cpu, ChevronRight } from 'lucide-react'
+import { ArrowDownRight, Cloud, Mail, Server, Workflow, Cpu } from 'lucide-react'
 import { useLanguage } from '../../i18n/LanguageContext'
 import { Language } from '../../i18n/types'
+import { stats } from '../../data/portfolio'
 import './Hero.css'
 
 const container = {
@@ -10,8 +11,8 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.1
+      staggerChildren: 0.12,
+      delayChildren: 0.08
     }
   }
 }
@@ -38,79 +39,118 @@ const Hero = () => {
   }, [messages.hero.titles])
 
   return (
-    <section id="home" className="hero-section container">
-      <div className="hero-content">
-        <motion.div variants={container} initial="hidden" animate="show">
-          <motion.div variants={item} className="hero-lang-switcher" aria-label={messages.hero.languageLabel}>
-            <LanguageButton value="vi" current={language} onChange={setLanguage} />
-            <LanguageButton value="en" current={language} onChange={setLanguage} />
-          </motion.div>
+    <section id="home" className="hero-section section-shell container">
+      <motion.div className="hero-grid" variants={container} initial="hidden" animate="show">
+        <motion.article className="hero-card hero-card-main glass" variants={item}>
+          <div className="hero-card-top">
+            <div className="hero-status">
+              <span className="hero-status-dot"></span>
+              <span>{messages.hero.status}</span>
+            </div>
 
-          <motion.div variants={item} className="hero-terminal-pre font-mono text-accent">
-            <span className="cursor">&gt;</span> {messages.hero.command}
-          </motion.div>
+            <div className="hero-lang-switcher" aria-label={messages.hero.languageLabel}>
+              <span className="hero-lang-label font-mono">{messages.hero.languageLabel}</span>
+              <div className="hero-lang-buttons">
+                <LanguageButton value="vi" current={language} onChange={setLanguage} />
+                <LanguageButton value="en" current={language} onChange={setLanguage} />
+              </div>
+            </div>
+          </div>
 
-          <motion.h1 variants={item} className="hero-name">
-            Phùng Quốc <span className="text-accent">Việt</span>
-          </motion.h1>
+          <div className="hero-command font-mono">
+            <span className="text-accent">$</span> {messages.hero.command}
+          </div>
 
-          <motion.div variants={item} className="hero-title-container">
+          <div className="hero-heading">
+            <h1 className="hero-name">
+              Phùng Quốc <span className="text-accent">Việt</span>
+            </h1>
             <AnimatePresence mode="wait">
-              <motion.h2
+              <motion.p
                 key={messages.hero.titles[index]}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-                className="hero-title font-mono"
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.35 }}
+                className="hero-role font-mono"
               >
                 {messages.hero.titles[index]}
-              </motion.h2>
+              </motion.p>
             </AnimatePresence>
-          </motion.div>
+          </div>
 
-          <motion.p variants={item} className="hero-objective">
-            {messages.hero.objective}
-          </motion.p>
+          <p className="hero-manifesto">{messages.hero.manifesto}</p>
+          <p className="hero-objective">{messages.hero.objective}</p>
 
-          <motion.div variants={item} className="hero-stats">
-            <StatItem icon={<Terminal size={20} />} label={messages.hero.statTags[0]} />
-            <StatItem icon={<Code2 size={20} />} label={messages.hero.statTags[1]} />
-            <StatItem icon={<Server size={20} />} label={messages.hero.statTags[2]} />
-            <StatItem icon={<Cpu size={20} />} label={messages.hero.statTags[3]} />
-          </motion.div>
+          <div className="hero-chip-list">
+            {messages.hero.statTags.map((tag) => (
+              <span key={tag} className="hero-chip font-mono">
+                {tag}
+              </span>
+            ))}
+          </div>
 
-          <motion.div variants={item} className="hero-cta">
-            <motion.a
-              href="#contact"
-              className="btn btn-primary"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label={messages.hero.contactCta}
-            >
-              {messages.hero.contactCta} <Mail size={18} style={{ marginLeft: '8px' }} />
+          <div className="hero-actions">
+            <motion.a href="#contact" className="btn btn-primary" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              {messages.hero.contactCta}
+              <Mail size={18} />
             </motion.a>
-            <motion.a
-              href="#projects"
-              className="btn btn-outline"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label={messages.hero.projectsCta}
-            >
-              {messages.hero.projectsCta} <ChevronRight size={18} style={{ marginLeft: '4px' }} />
+            <motion.a href="#projects" className="btn btn-outline" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              {messages.hero.projectsCta}
+              <ArrowDownRight size={18} />
             </motion.a>
-          </motion.div>
-        </motion.div>
-      </div>
+          </div>
 
-      <motion.div
-        className="hero-visual"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-      >
-        <div className="visual-blob"></div>
-        <div className="visual-grid"></div>
+          <div className="hero-submetrics">
+            <MetricStat label={language === 'vi' ? 'Kinh nghiệm' : 'Experience'} value={stats[0].value} />
+            <MetricStat label={language === 'vi' ? 'Dự án' : 'Projects'} value={stats[1].value} />
+            <MetricStat label={language === 'vi' ? 'Người dùng' : 'Users'} value={stats[2].value} />
+          </div>
+        </motion.article>
+
+        <motion.article className="hero-card hero-card-metric glass" variants={item}>
+          <span className="hero-card-label font-mono">{messages.hero.panelKicker}</span>
+          <div className="hero-big-metric">
+            <span className="hero-big-value">{stats[3].value}</span>
+            <span className="hero-big-text">{language === 'vi' ? 'TVL Managed' : 'TVL Managed'}</span>
+          </div>
+          <p className="hero-card-copy">{messages.hero.panelNote}</p>
+        </motion.article>
+
+        <motion.article className="hero-card hero-card-stack glass" variants={item}>
+          <span className="hero-card-label font-mono">{messages.hero.techStackLabel}</span>
+          <div className="stack-grid">
+            <StackItem icon={<Server size={18} />} label="NodeJS" detail="NestJS / APIs" />
+            <StackItem icon={<Cpu size={18} />} label="Rust*" detail={language === 'vi' ? 'Đang học' : 'Learning' } />
+            <StackItem icon={<Cloud size={18} />} label="AWS" detail="EC2 / EKS / S3" />
+            <StackItem icon={<Workflow size={18} />} label="K8s" detail="CI/CD / Scaling" />
+          </div>
+        </motion.article>
+
+        <motion.article className="hero-card hero-card-optimization glass" variants={item}>
+          <span className="hero-card-label font-mono">{messages.hero.optimizationLabel}</span>
+          <div className="optimization-value">25%</div>
+          <p className="optimization-copy">
+            {language === 'vi'
+              ? 'Tiết kiệm chi phí hạ tầng nhờ rà soát cloud, dọn CI/CD và tối ưu kích thước platform.'
+              : 'Infrastructure cost saved through cloud review, CI/CD cleanup, and platform right-sizing.'}
+          </p>
+        </motion.article>
+
+        <motion.article className="hero-card hero-card-terminal glass" variants={item}>
+          <div className="terminal-header">
+            <span className="terminal-dot"></span>
+            <span className="terminal-dot"></span>
+            <span className="terminal-dot"></span>
+            <span className="terminal-title font-mono">{messages.hero.terminalTitle}</span>
+          </div>
+
+          <div className="terminal-body font-mono">
+            {messages.hero.terminalLines.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
+          </div>
+        </motion.article>
       </motion.div>
     </section>
   )
@@ -135,29 +175,21 @@ const LanguageButton = ({
   </button>
 )
 
-const StatItem = ({ icon, label }: { icon: React.ReactNode; label: string }) => (
-  <div className="hero-stat-item glass">
-    <div className="stat-icon">{icon}</div>
-    <span className="font-mono stat-label">{label}</span>
+const MetricStat = ({ label, value }: { label: string; value: string }) => (
+  <div className="metric-stat">
+    <span className="metric-stat-value">{value}</span>
+    <span className="metric-stat-label font-mono">{label}</span>
   </div>
 )
 
-const Mail = ({ size, style }: { size: number; style?: React.CSSProperties }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    style={style}
-  >
-    <path d="m22 2-7 20-4-9-9-4Z" />
-    <path d="M22 2 11 13" />
-  </svg>
+const StackItem = ({ icon, label, detail }: { icon: ReactNode; label: string; detail: string }) => (
+  <div className="stack-item">
+    <span className="stack-item-icon">{icon}</span>
+    <div>
+      <p className="stack-item-label font-mono">{label}</p>
+      <p className="stack-item-detail">{detail}</p>
+    </div>
+  </div>
 )
 
 export default Hero
