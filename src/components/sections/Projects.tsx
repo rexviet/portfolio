@@ -22,13 +22,25 @@ const item = {
 
 const Projects = () => {
   const { language, messages } = useLanguage()
+  const sectionCopy =
+    language === 'vi'
+      ? 'Những dự án dưới đây phản ánh điểm mạnh về system design, delivery ownership và khả năng vận hành sản phẩm dưới tải thực tế.'
+      : 'These projects reflect a consistent strength in system design, delivery ownership, and operating products under real production pressure.'
 
   return (
-    <section id="projects" className="projects-section container">
+    <section id="projects" className="projects-section section-shell container">
       <motion.div initial="hidden" whileInView="show" viewport={{ once: true }}>
-        <motion.h2 className="section-title" variants={item}>
-          <span className="text-accent font-mono">03.</span> {messages.sections.projects}
-        </motion.h2>
+        <div className="section-head">
+          <motion.div variants={item}>
+            <p className="section-kicker">03 / {messages.sections.projects}</p>
+            <motion.h2 className="section-title" variants={item}>
+              {messages.sections.projects}
+            </motion.h2>
+          </motion.div>
+          <motion.p className="section-copy" variants={item}>
+            {sectionCopy}
+          </motion.p>
+        </div>
 
         <motion.div className="projects-grid" variants={container}>
           {projects.map((project, index) => (

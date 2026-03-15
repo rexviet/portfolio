@@ -22,13 +22,25 @@ const item = {
 
 const Experience = () => {
   const { language, messages } = useLanguage()
+  const sectionCopy =
+    language === 'vi'
+      ? 'Từ social app, health-tech đến blockchain, trọng tâm xuyên suốt là delivery ổn định, khả năng mở rộng và tiêu chuẩn vận hành rõ ràng.'
+      : 'From social products and health-tech to blockchain platforms, the throughline has been dependable delivery, scale readiness, and disciplined operations.'
 
   return (
-    <section id="experience" className="experience-section container">
+    <section id="experience" className="experience-section section-shell container">
       <motion.div initial="hidden" whileInView="show" viewport={{ once: true }}>
-        <motion.h2 className="section-title" variants={item}>
-          <span className="text-accent font-mono">02.</span> {messages.sections.experience}
-        </motion.h2>
+        <div className="section-head">
+          <motion.div variants={item}>
+            <p className="section-kicker">02 / {messages.sections.experience}</p>
+            <motion.h2 className="section-title" variants={item}>
+              {messages.sections.experience}
+            </motion.h2>
+          </motion.div>
+          <motion.p className="section-copy" variants={item}>
+            {sectionCopy}
+          </motion.p>
+        </div>
 
         <motion.div className="timeline" variants={container}>
           {experiences.map((exp, index) => (

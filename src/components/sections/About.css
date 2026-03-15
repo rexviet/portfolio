@@ -1,79 +1,74 @@
-.about-section {
-  padding: 100px 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .about-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin-top: 3rem;
-  align-items: center;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: 1.5rem;
+  align-items: stretch;
 }
 
-.about-bio h3 {
-  font-size: 1.5rem;
-  color: var(--accent-primary);
-  margin-bottom: 1.5rem;
+.about-bio {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: clamp(1.5rem, 3vw, 2.4rem);
+  border-radius: var(--radius-large);
 }
 
 .about-bio p {
   color: var(--text-secondary);
-  line-height: 1.8;
-  font-size: 1.1rem;
+  font-size: 1.02rem;
 }
 
-.about-stats {
+.about-highlights {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
-.stat-card {
-  padding: 1.5rem;
-  border-radius: 12px;
-  text-align: center;
-  border: 1px solid var(--glass-border);
-  transition: var(--transition-normal);
+.about-highlight {
+  padding: 1.35rem 1.4rem;
+  border-radius: 24px;
 }
 
-.stat-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent-primary);
-  box-shadow: 0 10px 30px -15px var(--accent-primary-hover);
-}
-
-.stat-icon {
-  color: var(--accent-primary);
+.about-highlight-head {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
   margin-bottom: 1rem;
-  opacity: 0.8;
 }
 
-.stat-value {
-  display: block;
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 0.25rem;
+.about-highlight-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  min-width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  color: var(--accent-primary);
+  background: rgba(15, 94, 168, 0.08);
 }
 
-.stat-label {
-  font-size: 0.85rem;
+.about-highlight-head h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.about-highlight-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.about-highlight-list li {
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.64);
+  border: 1px solid rgba(17, 35, 63, 0.08);
   color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: 0.86rem;
 }
 
-@media screen and (max-width: 968px) {
+@media screen and (max-width: 980px) {
   .about-content {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .about-stats {
     grid-template-columns: 1fr;
   }
 }

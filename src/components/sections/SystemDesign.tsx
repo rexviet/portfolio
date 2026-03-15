@@ -20,21 +20,44 @@ const item = {
   show: { opacity: 1, x: 0 }
 }
 
+const designIcons = [Workflow, Layers, ShieldCheck]
+
 const SystemDesign = () => {
   const { language, messages } = useLanguage()
+  const sectionCopy =
+    language === 'vi'
+      ? 'Các pattern tôi ưu tiên không phải vì “ngầu”, mà vì chúng giảm rủi ro vận hành, giữ dữ liệu nhất quán và cho phép scale có kiểm soát.'
+      : 'The patterns I lean on are not about sounding clever. They are about lowering operational risk, preserving consistency, and scaling with control.'
 
   return (
-    <section id="system-design" className="system-design-section container">
+    <section id="system-design" className="system-design-section section-shell container">
       <motion.div initial="hidden" whileInView="show" viewport={{ once: true }}>
-        <motion.h2 className="section-title" variants={item}>
-          <span className="text-accent font-mono">05.</span> {messages.sections.systemDesign}
-        </motion.h2>
+        <div className="section-head">
+          <motion.div variants={item}>
+            <p className="section-kicker">05 / {messages.sections.systemDesign}</p>
+            <motion.h2 className="section-title" variants={item}>
+              {messages.sections.systemDesign}
+            </motion.h2>
+          </motion.div>
+          <motion.p className="section-copy" variants={item}>
+            {sectionCopy}
+          </motion.p>
+        </div>
 
         <motion.div className="design-cards-container" variants={container}>
-          {systemDesigns.map((design, index) => (
-            <motion.div key={localize(design.title, language)} className="design-card glass" variants={item}>
-              <div className="design-info">
-                <h3 className="font-mono">{localize(design.title, language)}</h3>
+          {systemDesigns.map((design, index) => {
+            const Icon = designIcons[index] ?? Workflow
+
+            return (
+              <motion.article key={localize(design.title, language)} className="design-card glass" variants={item}>
+                <div className="design-card-top">
+                  <span className="design-index font-mono">0{index + 1}</span>
+                  <span className="design-icon" aria-hidden="true">
+                    <Icon size={20} />
+                  </span>
+                </div>
+
+                <h3>{localize(design.title, language)}</h3>
                 <p className="design-desc">{localize(design.description, language)}</p>
 
                 <div className="design-problem">
@@ -44,26 +67,18 @@ const SystemDesign = () => {
 
                 <div className="design-benefits">
                   <h4>{messages.systemDesign.benefitsLabel}</h4>
-                  <ul className="benefits-list font-mono">
+                  <ul className="benefits-list">
                     {design.benefits.map((benefit, i) => (
                       <li key={i} className="benefit-item">
-                        <CheckCircle2 size={14} style={{ marginRight: '8px', verticalAlign: 'middle', color: 'var(--accent-primary)' }} />
-                        {localize(benefit, language)}
+                        <CheckCircle2 size={14} />
+                        <span>{localize(benefit, language)}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              </div>
-
-              <div className="design-visual" aria-hidden="true">
-                <div className="diagram-placeholder">
-                  {index === 0 && <Workflow size={120} strokeWidth={1} />}
-                  {index === 1 && <Layers size={120} strokeWidth={1} />}
-                  {index === 2 && <ShieldCheck size={120} strokeWidth={1} />}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.article>
+            )
+          })}
         </motion.div>
       </motion.div>
     </section>
