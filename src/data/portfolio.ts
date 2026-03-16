@@ -47,18 +47,18 @@ export interface Social {
 }
 
 export const bio = {
-  title: l('Backend Leader & DevOps Engineer', 'Backend Leader & DevOps Engineer'),
+  title: l('AI Native Engineer | Backend, Platform & DevOps', 'AI Native Engineer | Backend, Platform & DevOps'),
   description: l(
-    'Với hơn 7 năm kinh nghiệm thực chiến trong việc xây dựng và vận hành các hệ thống backend quy mô lớn, tôi chuyên sâu vào kiến trúc Microservices, tối ưu hạ tầng Cloud và đảm bảo tính nhất quán dữ liệu. Tôi đam mê giải quyết các bài toán scalability/performance và luôn chú trọng xây dựng CI/CD flow mượt mà để tăng tốc độ phát triển sản phẩm.',
-    'With over 7 years of hands-on experience building and operating large-scale backend systems, I specialize in microservices architecture, cloud infrastructure optimization, and data consistency. I enjoy solving scalability/performance problems and building smooth CI/CD flows to accelerate product delivery.'
+    'Kỹ sư backend và platform với hơn 8 năm kinh nghiệm xây dựng distributed systems, event-driven microservices, cloud infrastructure và CI/CD platform. Chuyên sâu Node.js, TypeScript, AWS và system design cho các sản phẩm SaaS, fitness, blockchain và media. Hiện tập trung chuyển dịch sang AI-native engineering thông qua workflow automation, rapid prototyping và agentic product exploration.',
+    'Backend and platform engineer with 8+ years of experience building distributed systems, event-driven microservices, cloud infrastructure, and CI/CD platforms. Strong foundation in Node.js, TypeScript, AWS, DevOps, and scalable system design across SaaS, fitness, blockchain, and media products. Currently repositioning toward AI-native engineering through workflow automation, rapid prototyping, and agentic product exploration.'
   )
 }
 
 export const stats: Stat[] = [
-  { label: l('Năm kinh nghiệm', 'Years of Experience'), value: '7+', icon: 'Calendar' },
+  { label: l('Năm kinh nghiệm', 'Years of Experience'), value: '8+', icon: 'Calendar' },
   { label: l('Dự án hoàn thành', 'Projects Completed'), value: '15+', icon: 'Briefcase' },
   { label: l('Người dùng phục vụ cao nhất', 'Highest Users Served'), value: '300K+', icon: 'Users' },
-  { label: l('TVL cao nhất quản lý', 'Highest TVL Managed'), value: '$58M+', icon: 'TrendingUp' }
+  { label: l('TVL cao nhất quản lý', 'Highest TVL Managed'), value: '$58.11M', icon: 'TrendingUp' }
 ]
 
 export const socials: Social[] = [
@@ -68,8 +68,19 @@ export const socials: Social[] = [
 
 export const experiences: Experience[] = [
   {
+    company: l('Nghiên cứu độc lập & khám phá side hustle', 'Independent Research & Side Hustle Exploration'),
+    role: l('Finance Domain / Product Discovery', 'Finance Domain / Product Discovery'),
+    period: '02/2024 - Present',
+    location: l('TP. Hồ Chí Minh, Việt Nam', 'Ho Chi Minh City, Vietnam'),
+    description: [
+      l('Nghiên cứu và kiểm chứng các cơ hội side hustle trong lĩnh vực tài chính, bao gồm problem discovery, market mapping và monetization experiments.', 'Researched and validated side-hustle opportunities in the finance domain, including problem discovery, market mapping, and monetization experiments.'),
+      l('Thử nghiệm các workflow thiên về tự động hóa và ý tưởng sản phẩm tinh gọn để tăng hiệu quả nghiên cứu, triển khai và ra quyết định.', 'Explored automation-heavy workflows and lean product ideas to improve research, execution, and decision-making efficiency.'),
+      l('Nâng cao tư duy sản phẩm, tốc độ thử nghiệm và khả năng tìm kiếm cơ hội phần mềm ở giao điểm giữa tài chính và AI-native workflows.', 'Deepened product thinking, rapid experimentation, and software opportunity exploration at the intersection of finance and AI-native workflows.')
+    ]
+  },
+  {
     company: l('Pandora Digital', 'Pandora Digital'),
-    role: l('Backend Leader', 'Backend Leader'),
+    role: l('Backend Lead', 'Backend Lead'),
     period: '12/2022 - 01/2024',
     description: [
       l('Chịu trách nhiệm và ra quyết định về thiết kế hệ thống, thiết kế codebase.', 'Responsible for system design and codebase design decisions.'),
@@ -83,7 +94,7 @@ export const experiences: Experience[] = [
   },
   {
     company: l('Pandora Digital', 'Pandora Digital'),
-    role: l('Backend Developer, DevOps Engineer', 'Backend Developer, DevOps Engineer'),
+    role: l('Backend Engineer / DevOps Engineer', 'Backend Engineer / DevOps Engineer'),
     period: '12/2021 - 12/2022',
     description: [
       l('Tham gia thiết kế hệ thống và codebase.', 'Participated in system and codebase design.'),
@@ -95,7 +106,7 @@ export const experiences: Experience[] = [
   },
   {
     company: l('Everfit', 'Everfit'),
-    role: l('Backend Leader, DevOps Engineer', 'Backend Leader, DevOps Engineer'),
+    role: l('Backend Lead / DevOps Engineer', 'Backend Lead / DevOps Engineer'),
     period: '02/2020 - 03/2022',
     description: [
       l('Chịu trách nhiệm thiết kế hệ thống và codebase.', 'Owned system design and codebase direction.'),
@@ -108,7 +119,7 @@ export const experiences: Experience[] = [
   },
   {
     company: l('Synova Solutions', 'Synova Solutions'),
-    role: l('Backend Developer, DevOps Engineer', 'Backend Developer, DevOps Engineer'),
+    role: l('Backend Engineer / DevOps Engineer', 'Backend Engineer / DevOps Engineer'),
     period: '08/2018 - 12/2019',
     description: [
       l('Thiết kế và phát triển RESTful API, Socket API.', 'Designed and developed RESTful APIs and Socket APIs.'),
@@ -119,7 +130,7 @@ export const experiences: Experience[] = [
   },
   {
     company: l('Tesse', 'Tesse'),
-    role: l('Backend Developer, DevOps Engineer', 'Backend Developer, DevOps Engineer'),
+    role: l('Backend Engineer / DevOps Engineer', 'Backend Engineer / DevOps Engineer'),
     period: '12/2016 - 08/2018',
     description: [
       l('Tham gia thiết kế hệ thống và codebase.', 'Participated in system and codebase design.'),
@@ -147,7 +158,7 @@ export const projects: Project[] = [
   },
   {
     title: l('Pandora', 'Pandora'),
-    role: l('Backend Developer', 'Backend Developer'),
+    role: l('Backend Engineer', 'Backend Engineer'),
     period: '12/2021 - 12/2022',
     company: l('Pandora Digital', 'Pandora Digital'),
     teamSize: '15',
@@ -155,19 +166,6 @@ export const projects: Project[] = [
     description: [
       l('Tham gia thiết kế hệ thống và codebase.', 'Participated in system and codebase design.'),
       l('Bảo trì và phát triển tính năng cho dự án DEX.', 'Maintained and developed features for a DEX platform.'),
-      l('Đồng bộ dữ liệu blockchain vào database.', 'Synced blockchain data into databases.'),
-      l('Thiết kế và phát triển hệ thống microservices.', 'Designed and developed microservices architecture.')
-    ]
-  },
-  {
-    title: l('Plant vs Undead', 'Plant vs Undead'),
-    role: l('Freelance Backend Developer', 'Freelance Backend Developer'),
-    period: '12/2021 - 06/2022',
-    company: l('Uptivistic', 'Uptivistic'),
-    teamSize: '20',
-    techStack: ['NodeJS', 'SocketIO', 'MongoDB', 'Redis', 'GraphNode', 'Terraform', 'Jenkins', 'AWS (ECS, ECR, S3, SNS, SQS)'],
-    description: [
-      l('Bảo trì và phát triển tính năng cho dự án hiện tại.', 'Maintained and developed features for the ongoing project.'),
       l('Đồng bộ dữ liệu blockchain vào database.', 'Synced blockchain data into databases.'),
       l('Thiết kế và phát triển hệ thống microservices.', 'Designed and developed microservices architecture.')
     ]
@@ -192,27 +190,27 @@ export const skillGroups: SkillGroup[] = [
   {
     category: l('Ngôn ngữ & Framework', 'Languages & Frameworks'),
     icon: 'code',
-    skills: ['NodeJS (NestJS, Express)', 'TypeScript', 'JavaScript', 'Go', 'Python']
+    skills: ['Node.js', 'TypeScript', 'Bash', 'NestJS', 'Express']
   },
   {
     category: l('Cơ sở dữ liệu', 'Databases'),
     icon: 'database',
-    skills: ['PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch', 'MySQL', 'DynamoDB']
+    skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'DynamoDB', 'Elasticsearch']
   },
   {
     category: l('Kiến trúc & Microservices', 'Architecture & Microservices'),
     icon: 'architecture',
-    skills: ['Microservices', 'gRPC', 'Message Queues (SNS/SQS, RabbitMQ)', 'Event-Driven', 'RESTful API', 'Socket.io']
+    skills: ['Microservices', 'Event-Driven Architecture', 'CQRS', 'Transactional Outbox', 'Queues & Topics', 'Serverless']
   },
   {
     category: l('DevOps & Cloud', 'DevOps & Cloud'),
     icon: 'cloud',
-    skills: ['AWS (EC2, EKS, Lambda, S3)', 'Docker & Kubernetes', 'Terraform', 'CI/CD (GitHub Actions, Jenkins)', 'Azure']
+    skills: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'CloudFormation', 'CI/CD (GitHub Actions, Jenkins)']
   },
   {
-    category: l('Pattern Thiết kế hệ thống', 'System Design Patterns'),
+    category: l('Trọng tâm hiện tại', 'Current Focus'),
     icon: 'patterns',
-    skills: ['Transactional Outbox', 'CQRS', 'Saga Pattern', 'API Gateway', 'Caching Strategies']
+    skills: ['AI-native workflows', 'Workflow automation', 'Agentic orchestration', 'Rapid product prototyping']
   }
 ]
 
