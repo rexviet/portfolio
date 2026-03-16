@@ -77,9 +77,9 @@ export const messagesByLanguage: Record<Language, Messages> = {
     },
     hero: {
       command: 'xin_chao.exe',
-      titles: ['Trưởng nhóm Backend', 'Kỹ sư DevOps', 'Kiến trúc sư hệ thống', 'Chuyên gia Microservices'],
-      objective: 'Đóng góp năng lực Back-end, hệ thống và DevOps tại một môi trường vững mạnh, đồng thời phát triển để trở thành Solution Architect xuất sắc trong tương lai.',
-      statTags: ['CQRS', 'NestJS', 'Microservices', 'DevOps / AWS'],
+      titles: ['AI Native Engineer', 'Kỹ sư Backend & Platform', 'Kỹ sư DevOps', 'Kiến trúc hệ thống phân tán'],
+      objective: 'Xây dựng các nền tảng backend và hạ tầng cloud có khả năng mở rộng cao, đồng thời đẩy mạnh AI-native engineering qua workflow automation, agentic orchestration và rapid prototyping.',
+      statTags: ['AI-native', 'Node.js / TS', 'Microservices', 'DevOps / AWS'],
       contactCta: 'Liên hệ tôi',
       projectsCta: 'Xem dự án',
       languageLabel: 'Ngôn ngữ'
@@ -108,12 +108,12 @@ export const messagesByLanguage: Record<Language, Messages> = {
       successAlert: 'Cảm ơn bạn đã liên hệ! (Chế độ demo)'
     },
     metadata: {
-      title: 'Phùng Quốc Việt | Portfolio Backend Leader & DevOps',
-      description: 'Phùng Quốc Việt - Backend Leader & DevOps Engineer với hơn 7 năm kinh nghiệm xây dựng hệ thống Microservices, kiến trúc Scalable và tối ưu hạ tầng Cloud.',
-      ogTitle: 'Phùng Quốc Việt | Portfolio Backend Leader & DevOps',
-      ogDescription: 'Chuyên sâu về Microservices, System Design và kiến trúc chịu tải cao với hơn 7 năm kinh nghiệm.',
-      twitterTitle: 'Phùng Quốc Việt | Portfolio Backend Leader & DevOps',
-      twitterDescription: 'Chuyên sâu về Microservices, System Design và kiến trúc chịu tải cao với hơn 7 năm kinh nghiệm.'
+      title: 'Phùng Quốc Việt | AI Native Engineer Portfolio',
+      description: 'Phùng Quốc Việt - AI Native Engineer (Backend, Platform & DevOps) với hơn 8 năm kinh nghiệm xây dựng distributed systems, microservices và cloud infrastructure.',
+      ogTitle: 'Phùng Quốc Việt | AI Native Engineer Portfolio',
+      ogDescription: 'Tập trung vào backend, platform engineering, microservices và AI-native workflows với 8+ năm kinh nghiệm.',
+      twitterTitle: 'Phùng Quốc Việt | AI Native Engineer Portfolio',
+      twitterDescription: 'Tập trung vào backend, platform engineering, microservices và AI-native workflows với 8+ năm kinh nghiệm.'
     }
   },
   en: {
@@ -134,9 +134,9 @@ export const messagesByLanguage: Record<Language, Messages> = {
     },
     hero: {
       command: 'hello_world.exe',
-      titles: ['Backend Leader', 'DevOps Engineer', 'System Architect', 'Microservices Expert'],
-      objective: 'To contribute my back-end, systems, and DevOps expertise in a strong company and grow into an outstanding Solution Architect.',
-      statTags: ['CQRS', 'NestJS', 'Microservices', 'DevOps / AWS'],
+      titles: ['AI Native Engineer', 'Backend & Platform Engineer', 'DevOps Engineer', 'Distributed Systems Architect'],
+      objective: 'Build highly scalable backend platforms and cloud infrastructure while accelerating AI-native engineering through workflow automation, agentic orchestration, and rapid prototyping.',
+      statTags: ['AI-native', 'Node.js / TS', 'Microservices', 'DevOps / AWS'],
       contactCta: 'Contact Me',
       projectsCta: 'View Projects',
       languageLabel: 'Language'
@@ -165,12 +165,12 @@ export const messagesByLanguage: Record<Language, Messages> = {
       successAlert: 'Thank you for reaching out! (Demo mode)'
     },
     metadata: {
-      title: 'Phung Quoc Viet | Backend Leader & DevOps Portfolio',
-      description: 'Phung Quoc Viet - Backend Leader & DevOps Engineer with 7+ years building scalable microservices systems and cloud infrastructure.',
-      ogTitle: 'Phung Quoc Viet | Backend Leader & DevOps Portfolio',
-      ogDescription: 'Focused on Microservices, System Design, and scalable architectures with 7+ years of practical delivery.',
-      twitterTitle: 'Phung Quoc Viet | Backend Leader & DevOps Portfolio',
-      twitterDescription: 'Focused on Microservices, System Design, and scalable architectures with 7+ years of practical delivery.'
+      title: 'Phung Quoc Viet | AI Native Engineer Portfolio',
+      description: 'Phung Quoc Viet - AI Native Engineer (Backend, Platform & DevOps) with 8+ years building distributed systems, microservices, and cloud infrastructure.',
+      ogTitle: 'Phung Quoc Viet | AI Native Engineer Portfolio',
+      ogDescription: 'Focused on backend, platform engineering, microservices, and AI-native workflows with 8+ years of practical delivery.',
+      twitterTitle: 'Phung Quoc Viet | AI Native Engineer Portfolio',
+      twitterDescription: 'Focused on backend, platform engineering, microservices, and AI-native workflows with 8+ years of practical delivery.'
     }
   }
 }

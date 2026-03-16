@@ -1,3 +1,3 @@
 # Portfolio Website
 
-Phùng Quốc Việt - Backend Leader & DevOps Engineer.
+Phùng Quốc Việt - AI Native Engineer | Backend, Platform & DevOps.
